@@ -14,7 +14,6 @@ using TwilightShards.Common;
 using Microsoft.Xna.Framework.Graphics;
 using EnumsNET;
 using PyTK.CustomTV;
-using PyTK.CustomElementHandler;
 using Harmony;
 using System.Reflection;
 using ClimatesOfFerngillRebuild.Patches; 
