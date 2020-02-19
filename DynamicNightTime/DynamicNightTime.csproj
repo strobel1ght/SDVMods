@@ -9,6 +9,15 @@
     <EnableHarmony>true</EnableHarmony>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>portable</DebugType>
+    <PlatformTarget>anycpu</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <PlatformTarget>anycpu</PlatformTarget>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="3.0.0-beta.8" />
   </ItemGroup>

@@ -1,31 +1,30 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <AssemblyName>ClimatesOfFerngill</AssemblyName>
-    <RootNamespace>ClimatesOfFerngillRebuild</RootNamespace>
-    <Version>1.5.5</Version>
-    <TargetFramework>net452</TargetFramework>
-
-    <EnableHarmony>true</EnableHarmony>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Enums.NET" Version="3.0.1" />
-    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="3.0.0-beta.8" />
-    <PackageReference Include="Platonymous.PyTK" Version="1.9.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="assets\climates\enhancedlowfog.json">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
-    <None Update="i18n\default.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
-
-  <Import Project="..\TwilightCoreShared\TwilightCoreShared.projitems" Label="Shared" />
-  <Import Project="$(SolutionDir)\deploy-mod.targets" />
-
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <AssemblyName>ClimatesOfFerngill</AssemblyName>
+        <RootNamespace>ClimatesOfFerngillRebuild</RootNamespace>
+        <Version>1.5.5</Version>
+        <TargetFramework>net452</TargetFramework>
+        <Platforms>x86</Platforms>
+        <PlatformTarget>x86</PlatformTarget>
+        <EnableHarmony>true</EnableHarmony>
+        <IgnoreModFilePatterns>DotNetZip\.(?:dll|pdb),PyTK\.(?:dll|pdb),0Harmony\.(?:dll|pdb), MoonSharp.Interpreter\.(?:dll|pdb), NCalc\.(?:dll|pdb),TMXTile\.(?:dll|pdb)</IgnoreModFilePatterns>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Enums.NET" Version="3.0.3" />
+        <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="3.1.0" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Update="i18n\default.json">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+    <ItemGroup>
+        <Reference Include="PyTK">
+            <HintPath>$(GamePath)\Mods\PyTK\PyTK.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+    </ItemGroup>
+    <Import Project="$(SolutionDir)\deploy-mod.targets" />
+    <Import Project="$(SolutionDir)\TwilightCoreShared\TwilightCoreShared.projitems" />
 </Project>

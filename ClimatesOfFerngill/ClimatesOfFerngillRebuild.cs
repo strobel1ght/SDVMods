@@ -14,6 +14,7 @@ using TwilightShards.Common;
 using Microsoft.Xna.Framework.Graphics;
 using EnumsNET;
 using PyTK.CustomTV;
+using PyTK.CustomElementHandler;
 using Harmony;
 using System.Reflection;
 using ClimatesOfFerngillRebuild.Patches; 
@@ -248,8 +249,8 @@ namespace ClimatesOfFerngillRebuild
         /// <param name="e">The event arguments.</param>
         private void OnSaveLoaded(object sender, SaveLoadedEventArgs e)
         {
-            CustomTVMod.changeAction("weather", DisplayWeather);
-
+            //CustomTVMod.changeAction("weather", DisplayWeather);
+            CustomTVMod.showProgram("weather");
             if (Context.IsMainPlayer)
             {
 	            Conditions.trackerModel = Helper.Data.ReadSaveData<ClimateTracker>("climate-tracker");
@@ -285,7 +286,7 @@ namespace ClimatesOfFerngillRebuild
 
             OnScreenText += DescriptionEngine.GenerateTVForecast(Conditions, ClimatesOfFerngill.Dice, fog, MoonPhase, MoonIsUp);
 
-            CustomTVMod.showProgram(BackgroundSprite, OnScreenText, CustomTVMod.endProgram, WeatherSprite);
+            CustomTVMod.showprogram(BackgroundSprite, OnScreenText, CustomTVMod.endProgram, WeatherSprite);
         }
 
         /// <summary>Raised before drawing the HUD (item toolbar, clock, etc) to the screen. The vanilla HUD may be hidden at this point (e.g. because a menu is open).</summary>
